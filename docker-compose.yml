@@ -1,0 +1,7 @@
+version: "2"
+services:
+  pwn:
+    build: .
+    image: ctftraining/suctf_2019_pwn_playfmt
+    ports:
+     - "10000:9999"
