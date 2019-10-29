@@ -1,23 +1,16 @@
 version: "2"
 services:
   
-  base_pwn:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: ctftraining/base_pwn_xinetd
-
   pwn:
     build:
       context: .
-      dockerfile: example.Dockerfile
-    image: ctftraining/pwn_test
+      dockerfile: Dockerfile
+    image: ctftraining/suctf_2019_pwn_playfmt
     volumes:
       - ./tcpdump:/var/lib/tcpdump
     ports:
       - "10001:10000"
     environment:
-      - FLAG=flag{base_pwn}
-      - TCPDUMP_ENABLE=1
-    depends_on:
-      - base_pwn
+      # 题目限制，flag长度不能太长
+      - FLAG=flag{playfmt}
+      - TCPDUMP_ENABLE=0
